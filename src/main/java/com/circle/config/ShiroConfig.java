@@ -34,6 +34,7 @@ public class ShiroConfig {
         bean.setFilterChainDefinitionMap(filterMap);
         //设置登录页面
         bean.setLoginUrl("/toLogin");
+        bean.setUnauthorizedUrl("/noauth");
         return bean;
     }
 

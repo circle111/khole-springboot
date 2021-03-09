@@ -39,7 +39,7 @@ public class AdminController {
     public String hello() {
         return "hello world!!";
     }
-
+    @ResponseBody
     @RequestMapping("/toLogin")
     public String tologin() {
         return "login";
@@ -69,10 +69,18 @@ public class AdminController {
         return "index";
     }
 
-    @RequestMapping("/logout")
+    @ApiOperation(value = "退出登录")
+    @GetMapping("/logout")
     public String logout(Model model) {
         model.addAttribute("msg", "退出成功");
         SecurityUtils.getSubject().logout();
         return "login";
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "没有授权提示接口")
+    @GetMapping("/noauth")
+    public String noauth() {
+        return "你的权限不够";
     }
 }

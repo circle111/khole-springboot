@@ -1,7 +1,8 @@
-package com.circle.service.subject;
+package com.circle.service.impl;
 
 import com.circle.mapper.UserMapper;
 import com.circle.pojo.User;
+import com.circle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

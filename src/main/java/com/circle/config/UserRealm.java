@@ -1,7 +1,7 @@
 package com.circle.config;
 
 import com.circle.pojo.User;
-import com.circle.service.subject.UserService;
+import com.circle.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

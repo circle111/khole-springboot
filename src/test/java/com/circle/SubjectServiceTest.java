@@ -1,7 +1,7 @@
 package com.circle;
 
 import com.circle.pojo.User;
-import com.circle.service.subject.UserService;
+import com.circle.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
