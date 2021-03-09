@@ -1,6 +1,6 @@
 package com.circle.mapper;
 
-import com.circle.pojo.Subject;
+import com.circle.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,14 +8,14 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface SubjectMapper {
+public interface UserMapper {
     /**
      * 添加
      *
      * @param subject 用户
      * @return 影响行数
      */
-    int insert(Subject subject);
+    int insert(User subject);
 
     /**
      * 根据ID删除
@@ -31,7 +31,7 @@ public interface SubjectMapper {
      * @param subject 用户
      * @return 影响行数
      */
-    int update(Subject subject);
+    int update(User subject);
 
     /**
      * 根据ID查询
@@ -39,14 +39,14 @@ public interface SubjectMapper {
      * @param userId 用户ID
      * @return 用户
      */
-    Subject getUserById(Integer userId);
+    User getUserById(Integer userId);
 
     /**
      * 获得用户列表
      *
      * @return  用户列表
      */
-    List<Subject> listUser() ;
+    List<User> listUser() ;
 
 
     /**
@@ -55,7 +55,7 @@ public interface SubjectMapper {
      * @param str 用户名或Email
      * @return 用户
      */
-    Subject getUserByNameOrEmail(String str) ;
+    User getUserByNameOrEmail(String str) ;
 
     /**
      * 根据用户名查用户
@@ -63,7 +63,7 @@ public interface SubjectMapper {
      * @param name 用户名
      * @return 用户
      */
-    Subject getUserByName(String name);
+    User getUserByName(String name);
 
     /**
      * 根据Email查询用户
@@ -71,5 +71,5 @@ public interface SubjectMapper {
      * @param email 邮箱
      * @return 用户
      */
-    Subject getUserByEmail(String email) ;
+    User getUserByEmail(String email) ;
 }

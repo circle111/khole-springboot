@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.circle.mapper.SubjectMapper">
-    <resultMap id="BaseResultMap" type="com.circle.pojo.Subject">
+<mapper namespace="com.circle.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="User">
         <id column="user_id" property="userId" jdbcType="INTEGER"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="user_pass" property="userPass" jdbcType="VARCHAR"/>
@@ -36,7 +36,7 @@
         where user_id = #{userId,jdbcType=INTEGER}
     </delete>
 
-    <insert id="insert" parameterType="Subject" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
         insert into
         <include refid="tb"/>
         (user_id, user_name, user_pass,
@@ -49,7 +49,7 @@
         #{userLastLoginTime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=INTEGER})
     </insert>
 
-    <update id="update" parameterType="Subject">
+    <update id="update" parameterType="User">
         update
         <include refid="tb"/>
         <set>
@@ -77,7 +77,7 @@
     </select>
 
     <!--根据用户名或邮箱获得用户-->
-    <select id="getUserByNameOrEmail" parameterType="String" resultType="Subject">
+    <select id="getUserByNameOrEmail" parameterType="String" resultType="User">
         SELECT
         <include refid="Base_Column_List"/>
         FROM
@@ -90,7 +90,7 @@
     </select>
 
     <!--根据用户名查用户-->
-    <select id="getUserByName" parameterType="String" resultType="Subject">
+    <select id="getUserByName" parameterType="String" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM
@@ -102,7 +102,7 @@
     </select>
 
     <!--根据Email查用户-->
-    <select id="getUserByEmail" parameterType="String" resultType="Subject">
+    <select id="getUserByEmail" parameterType="String" resultType="User">
         SELECT
         <include refid="Base_Column_List"/>
         FROM

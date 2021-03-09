@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subject {
+public class User {
     private static final long serialVersionUID = -4415517704211731385L;
     private Integer userId;
 

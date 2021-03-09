@@ -1,7 +1,7 @@
 package com.circle;
 
-import com.circle.pojo.Subject;
-import com.circle.service.subject.SubjectService;
+import com.circle.pojo.User;
+import com.circle.service.subject.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class SubjectServiceTest {
     @Autowired
-    private SubjectService subjectService;
+    private UserService subjectService;
 
     @Test
     public void test1() {
@@ -18,13 +18,15 @@ public class SubjectServiceTest {
 
     @Test
     public void test2() {
-        for (Subject subject : subjectService.listUser()) {
+        for (User subject : subjectService.listUser()) {
             System.out.println(subject.toString());
         }
     }
 
     @Test
-    public void test3() {}
+    public void test3() {
+        System.out.println(subjectService.getUserByName("admin"));
+    }
 
     @Test
     public void test4() {}
