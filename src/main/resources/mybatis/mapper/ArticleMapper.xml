@@ -17,7 +17,7 @@
         <result column="article_status" property="articleStatus" jdbcType="INTEGER"/>
     </resultMap>
 
-    <sql id="tb">khole_article</sql>
+    <sql id="tb"> khole_article </sql>
 
     <sql id="Base_Column_List">
     article_id, article_user_id, article_title, article_content,article_summary, article_view_count, article_comment_count,
@@ -26,8 +26,7 @@
 
 
     <select id="listAllNotWithContent" resultType="Article">
-        SELECT
-        article_id, article_user_id, article_title, article_create_time
+        SELECT article_id, article_user_id, article_title, article_create_time
         FROM
         <include refid="tb"/>
         WHERE article_status = 1
@@ -35,37 +34,26 @@
     </select>
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT
-        *
-        FROM
-        <include refid="tb"/>
+        SELECT * FROM <include refid="tb"/>
         <where>
             <if test="status != null">
-                khole_article.article_status = #{status} AND
+                article_status = #{status}
             </if>
             <if test="keywords != null">
-                khole_article.article_title LIKE concat(concat('%',#{keywords}),'%') AND
+                AND article_title LIKE concat(concat('%',#{keywords}),'%')
             </if>
             <if test="userId != null">
-                khole_article.article_user_id = #{userId} AND
+                AND article_user_id = #{userId}
             </if>
             <if test="categoryId != null">
-                khole_article.article_id IN (
-                SELECT khole_article_category_ref.article_id FROM khole_article_category_ref
-                WHERE khole_article_category_ref.category_id = #{categoryId}
-                ) AND
+                AND article_id IN (SELECT article_id FROM khole_article_category_ref WHERE category_id = #{categoryId})
             </if>
             <if test="tagId != null">
-                khole_article.article_id IN (
-                SELECT khole_article_tag_ref.article_id FROM khole_article_tag_ref
-                WHERE khole_article_tag_ref.tag_id = #{tagId}
-                ) AND
+                AND article_id IN (SELECT article_id FROM khole_article_tag_ref WHERE tag_id = #{tagId})
             </if>
-            1 = 1
         </where>
-        ORDER BY `khole_article`.`article_order` DESC, `khole_article`.`article_id` DESC
+        ORDER BY article_order DESC, article_id DESC
     </select>
-
     <delete id="deleteById" parameterType="java.lang.Integer">
         delete from
         <include refid="tb"/>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Repository
@@ -47,7 +48,6 @@ public interface ArticleMapper {
      * @return 文章列表
      */
     List<Article> findAll(HashMap<String, Object> criteria);
-
     /**
      * 文章归档
      * @return

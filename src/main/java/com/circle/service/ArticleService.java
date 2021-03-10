@@ -100,9 +100,7 @@ public interface ArticleService {
      * @param criteria  查询条件
      * @return 文章列表
      */
-    PageInfo<Article> pageArticle(Integer pageIndex,
-                                  Integer pageSize,
-                                  HashMap<String, Object> criteria);
+    PageInfo<Article> pageArticle(Integer pageIndex, Integer pageSize, HashMap<String, Object> criteria);
 
     /**
      * 文章详情页面显示

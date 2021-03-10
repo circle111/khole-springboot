@@ -43,22 +43,22 @@ public class TagController {
         }
         map.put("tag", tag);
         //文章列表
-//        HashMap<String, Object> criteria = new HashMap<>(2);
-//        criteria.put("tagId", tagId);
-//        criteria.put("status", ArticleStatus.PUBLISH.getValue());
-//        PageInfo<Article> articlePageInfo = articleService.pageArticle(pageIndex, pageSize, criteria);
-//        map.put("pageInfo", articlePageInfo);
-//        //侧边栏
-//        //标签列表显示
-//        List<Tag> allTagList = tagService.listTag();
-//        map.put("allTagList", allTagList);
-//        //获得随机文章
-//        List<Article> randomArticleList = articleService.listRandomArticle(8);
-//        map.put("randomArticleList", randomArticleList);
-//        //获得热评文章
-//        List<Article> mostCommentArticleList = articleService.listArticleByCommentCount(8);
-//        map.put("mostCommentArticleList", mostCommentArticleList);
-//        map.put("pageUrlPrefix", "/tag?pageIndex");
+        HashMap<String, Object> criteria = new HashMap<>(2);
+        criteria.put("tagId", tagId);
+        criteria.put("status", ArticleStatus.PUBLISH.getValue());
+        PageInfo<Article> articlePageInfo = articleService.pageArticle(pageIndex, pageSize, criteria);
+        map.put("pageInfo", articlePageInfo);
+        //侧边栏
+        //标签列表显示
+        List<Tag> allTagList = tagService.listTag();
+        map.put("allTagList", allTagList);
+        //获得随机文章
+        List<Article> randomArticleList = articleService.listRandomArticle(8);
+        map.put("randomArticleList", randomArticleList);
+        //获得热评文章
+        List<Article> mostCommentArticleList = articleService.listArticleByCommentCount(8);
+        map.put("mostCommentArticleList", mostCommentArticleList);
+        map.put("pageUrlPrefix", "/tag?pageIndex");
         return map;
     }
 }
