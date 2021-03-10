@@ -1,5 +1,6 @@
 package com.circle.service.impl;
 
+import com.circle.enums.ArticleCommentStatus;
 import com.circle.mapper.ArticleCategoryRefMapper;
 import com.circle.mapper.ArticleMapper;
 import com.circle.mapper.ArticleTagRefMapper;
@@ -136,6 +137,8 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.deleteById(id);
         // 删除分类关联
         articleCategoryRefMapper.deleteByArticleId(id);
+        //删除标签关联
+        articleTagRefMapper.deleteByArticleId(id);
     }
 
 
@@ -203,7 +206,7 @@ public class ArticleServiceImpl implements ArticleService {
         //添加文章
         article.setArticleCreateTime(new Date());
         article.setArticleUpdateTime(new Date());
-//        article.setArticleIsComment(ArticleCommentStatus.ALLOW.getValue());
+        article.setArticleIsComment(ArticleCommentStatus.ALLOW.getValue());
         article.setArticleViewCount(0);
         article.setArticleLikeCount(0);
         article.setArticleCommentCount(0);

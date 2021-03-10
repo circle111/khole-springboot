@@ -30,4 +30,6 @@ spring:
 mybatis:
   type-aliases-package: com.circle.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 #整合mybatis，设置别名

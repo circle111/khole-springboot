@@ -6,3 +6,5 @@
 这次会用到的技术栈是：springboot、maven、mybatis、mysql、druid、shiro、swagger
 
 依旧采用前后端分离的方式来写我的博客。接口风格采用RESTful风格。
+
+SpringBoot开启事务

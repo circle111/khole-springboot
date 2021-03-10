@@ -130,8 +130,7 @@
 
     <!--获得文章留言总数-->
     <select id="countArticleComment" resultType="Integer">
-        SELECT SUM(article_comment_count)
-        FROM
+        SELECT SUM(article_comment_count) FROM
         <include refid="tb"/>
         WHERE article_status = 1
     </select>
@@ -191,7 +190,6 @@
         WHERE article_status = 1
         ORDER BY article_view_count DESC,article_order DESC, article_id DESC
         limit #{limit}
-
     </select>
 
 

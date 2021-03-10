@@ -1,10 +1,14 @@
 package com.circle.mapper;
 
 import com.circle.pojo.Category;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Mapper
+@Repository
 public interface CategoryMapper {
     /**
      * 添加

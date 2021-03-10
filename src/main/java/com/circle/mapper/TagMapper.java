@@ -1,9 +1,13 @@
 package com.circle.mapper;
 
 import com.circle.pojo.Tag;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Mapper
+@Repository
 public interface TagMapper {
     /**
      * 添加标签
@@ -44,7 +48,6 @@ public interface TagMapper {
      * @return 列表
      */
     List<Tag> listTag() ;
-
 
     /**
      * 根据标签名获取标签
